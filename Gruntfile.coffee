@@ -11,12 +11,11 @@ module.exports = (grunt) ->
                 declaration: false
                 noImplicitAny: true
                 comments: true
-            root:
-                src: './*.ts'
-            lib:
-                src: './lib/**/*.ts'
-            test:
-                src: './test/*.ts'
+            prod:
+                src: ['./index.ts', 'lib/**/*.ts']
+                dest: './dist/'
+            dev:
+                src: ['./index.ts', 'lib/**/*.ts', 'test/**/*.ts']
         
         clean:
             dev: [
@@ -25,8 +24,7 @@ module.exports = (grunt) ->
                 '*.map', '*/*.map'
                 ]
     
-    grunt.registerTask 'default', ['build']
+    grunt.registerTask 'default', ['typescript:dev']
     grunt.registerTask 'build', ['clean:dev', 'typescript']
-    grunt.registerTask 'install', ['typescript']
     
     require('load-grunt-tasks')(grunt)

@@ -2,14 +2,8 @@
   "name": "talk-generator",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
-  "files": [
-    "*.ts", "lib/**/*.ts",
-    "tsd.json", "Gruntfile.coffee",
-    "*.md"
-  ],
+  "main": "dest/index.js",
   "scripts": {
-    "install": "tsd reinstall && grunt install",
     "test": "mocha -R spec test/*.js",
     "tsd": "tsd reinstall",
     "build": "grunt build"

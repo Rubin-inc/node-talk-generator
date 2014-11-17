@@ -6,8 +6,14 @@ Gruntfile.js.map
 Gruntfile.min.js
 Gruntfile.min.js.map
 
-*.js
-*.js.map
+/*.js
+/*.js.map
+
+/lib/**/*.js
+/lib/**/*.js.map
+
+/test/**/*.js
+/test/**/*.js.map
 
 *.suo
 *.csproj.user
