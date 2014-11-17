@@ -37,6 +37,7 @@
     <TypeScriptCompile Include="lib\sentence.ts" />
     <TypeScriptCompile Include="lib\talk.ts" />
     <TypeScriptCompile Include="lib\talk-list.ts" />
+    <TypeScriptCompile Include="test\pointer.ts" />
     <TypeScriptCompile Include="test\talk-list.ts" />
     <TypeScriptCompile Include="test\talk.ts" />
   </ItemGroup>

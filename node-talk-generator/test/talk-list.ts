@@ -2,6 +2,8 @@
 /// <reference path="../typings/chai/chai.d.ts" />
 /// <reference path="../typings/mocha/mocha.d.ts" />
 
+// 会話一覧に対してのテスト
+
 import _ = require('lodash');
 import chai = require('chai');
 
@@ -33,6 +35,14 @@ describe('TalkList class', () => {
         talkList.add(talk);
 
         expect(talkList.length).to.be.above(0); // > 0
+    });
+
+    it('TalkList#clear()', () => {
+        var talk = new tg.Talk('id');
+        talkList.add(talk);
+        talkList.clear();
+
+        expect(talkList.length).to.equal(0);
     });
 
     it('TalkList#items() !== null', () => {

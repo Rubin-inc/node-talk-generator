@@ -19,6 +19,7 @@ $ npm install -g tsd
 Next, you must install dependency libraries for this project.
 
 ```
+$ cd node-talk-generator
 $ tsd reinstall
 $ npm install
 $ grunt build
@@ -28,5 +29,6 @@ $ grunt build
 You can test as following.
 
 ```
+$ cd node-talk-generator
 $ npm test
 ```

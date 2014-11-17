@@ -1,4 +1,7 @@
-﻿/// <reference path="../typings/lodash/lodash.d.ts" />
+﻿/// <reference path="../typings/node/node.d.ts" />
+/// <reference path="../typings/lodash/lodash.d.ts" />
+
+// 会話の一覧を表す
 
 import _ = require('lodash');
 
@@ -9,6 +12,9 @@ import pointer = require('./pointer');
  * 会話一覧を表すクラス
  */
 export class TalkList {
+    /**
+     * 会話の一覧
+     */
     private talks: talk.Talk[] = [];
     private talksHash: { [key: string]: talk.Talk } = {};
 
@@ -18,7 +24,6 @@ export class TalkList {
     public add(talk: talk.Talk): TalkList {
         this.talks.push(talk);
         this.talksHash[talk.id] = talk;
-
         return this;
     }
 
@@ -49,18 +54,35 @@ export class TalkList {
 
     /**
      * 会話を再開する
-     * @param p 会話位置を示すポインタ
+     * @param   p 会話位置を示すポインタ
+     * @returns 再開した会話、再開できない場合は null
      */
-    public resumeTalk(p: pointer.Pointer): void {
-        
+    public resumeTalk(p: pointer.Pointer): talk.Talk {
+        if (!p) return null;
+        if (!p.talkId) return null;
+
+        // 会話を取得
+        var talk = this.talksHash[p.talkId];
+        if (!talk) return null;
+
+        // 会話を再開
+        throw 'Not Implemented';
+
+        return null;
     }
 
+    /**
+     * 会話一覧をクリアする
+     */
     public clear(): TalkList {
         this.talks.length = 0;
         this.talksHash = {};
         return this;
     }
 
+    /**
+     * 会話の個数を返す
+     */
     public get length(): number {
         return this.talks.length;
     }

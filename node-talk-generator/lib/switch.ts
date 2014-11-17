@@ -3,5 +3,9 @@
 
 import _ = require('lodash');
 
-export class Phrase {
+/**
+ * 条件分岐を表すクラス
+ */
+export class Switch {
+
 } 
