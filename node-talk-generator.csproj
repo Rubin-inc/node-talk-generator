@@ -33,6 +33,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="index.ts" />
     <TypeScriptCompile Include="lib\phrase\basicPhrase.ts" />
+    <TypeScriptCompile Include="lib\phrase\branchPhrase.ts" />
     <TypeScriptCompile Include="lib\phrase\index.ts" />
     <TypeScriptCompile Include="lib\phrase\phrase.ts" />
     <TypeScriptCompile Include="lib\phrase\variablePhrase.ts" />
