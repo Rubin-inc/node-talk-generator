@@ -58,6 +58,29 @@ export class Talk {
     }
 
     /**
+     * 会話を途中から再開する
+     */
+    public resume(pointer: pointer.Pointer): Talk {
+        // 違う会話のポインタである場合
+        if (this.id !== pointer.talkId) {
+            throw new Error('TalkId does not match');
+        }
+
+        this.pointer = pointer;
+        return this;
+    }
+
+    /**
+     * 会話をリセットし、はじめから開始する
+     */
+    public reset(): Talk {
+        this.pointer.branchId = null;
+        this.pointer.sentenceId = null;
+
+        return this;
+    }
+
+    /**
      * 次の文章を開始する
      */
     public next(): TalkNext {
