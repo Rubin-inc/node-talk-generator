@@ -6,6 +6,9 @@ import _ = require('lodash');
 import phrase = require('./phrase/index');
 
 export class Sentence {
+    /**
+     * フレーズ一覧
+     */
     private phrases: phrase.BasicPhrase[] = [];
 
     public constructor(public id: string) { }

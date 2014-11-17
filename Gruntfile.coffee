@@ -10,7 +10,7 @@ module.exports = (grunt) ->
                 sourceMap: false
                 declaration: false
                 noImplicitAny: true
-                comments: true
+                comments: false
             prod:
                 src: ['./index.ts', 'lib/**/*.ts']
                 dest: './dist/'

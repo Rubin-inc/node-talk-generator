@@ -19,5 +19,6 @@ module.exports = {
     TalkList: talkList.TalkList,
     Sentence: sentence.Sentence,
     Pointer: pointer.Pointer,
-    Branch: branch.Branch
+    Branch: branch.Branch,
+    Phrase: phrase.Phrase,
 };

@@ -7,12 +7,8 @@ import _ = require('lodash');
 
 import basicPhrase = require('./basicPhrase');
 
-export class Phrase extends basicPhrase.BasicPhrase {
-    public constructor(id: string) {
-        super(id);
-    }
-
-    public getText(args: { [key: string]: string }): string {
+export class BranchPhrase extends basicPhrase.BasicPhrase {
+    public getText(): string {
         return null;
     }
-}
+} 
