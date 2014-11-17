@@ -12,20 +12,13 @@ node-talk-generator
 TODO
 
 ## Build
-First, you must install developer tools.
-
-```
-$ npm install -g grunt-cli
-$ npm install -g tsd
-```
-
-Next, you must install dependency libraries for this project.
+You must install dependency libraries for this project.
 
 ```
 $ cd node-talk-generator
-$ tsd reinstall
 $ npm install
-$ grunt build
+$ npm run tsd
+$ npm run build
 ```
 
 ## Test
@@ -33,6 +26,5 @@ There are test scripts used [Mocha](http://mochajs.org) and [Chai](http://chaijs
 
 ```
 $ cd node-talk-generator
-$ npm install -g mocha
 $ npm test
 ```

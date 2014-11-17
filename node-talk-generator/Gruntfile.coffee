@@ -14,7 +14,7 @@ module.exports = (grunt) ->
             root:
                 src: './*.ts'
             lib:
-                src: './lib/*.ts'
+                src: './lib/**/*.ts'
             test:
                 src: './test/*.ts'
         

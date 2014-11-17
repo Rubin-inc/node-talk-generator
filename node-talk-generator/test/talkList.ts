@@ -23,7 +23,7 @@ describe('TalkList class', () => {
     });
 
     it('TalkList !== null', () => {
-        expect(talkList).not.to.be.null;
+        expect(talkList).to.not.be.null;
     });
 
     it('TalkList#length == 0', () => {
@@ -46,7 +46,7 @@ describe('TalkList class', () => {
     });
 
     it('TalkList#items() !== null', () => {
-        expect(talkList.items()).not.to.be.null;
+        expect(talkList.items()).to.not.be.null;
     });
 
     it('TalkList#items().length == 0', () => {
@@ -60,14 +60,39 @@ describe('TalkList class', () => {
         expect(talkList.items()).to.include(talk);
     });
 
-    it('TalkList#startTalk shouldn\'t start', () => {
-        expect(talkList.startTalk('nothing_talk_id')).to.be.null;
+    it('TalkList#start shouldn\'t start', () => {
+        expect(talkList.start('nothing_talk_id')).to.be.null;
     });
 
-    it('TalkList#startTalk should start', () => {
+    it('TalkList#start should start', () => {
         var talk = new tg.Talk('talk_id');
         talkList.add(talk);
 
-        expect(talkList.startTalk('talk_id')).not.to.be.null;
+        expect(talkList.start('talk_id')).to.not.be.null;
+    });
+
+    it('TalkList#start should start (Japanese)', () => {
+        var ID = 'トーク ID';
+        var talk = new tg.Talk(ID);
+        talkList.add(talk);
+
+        expect(talkList.start(ID)).to.not.be.null;
+    });
+
+    it('TalkList#resume()', () => {
+        var ID = 'talk_id';
+
+        var talk = new tg.Talk(ID);
+        talkList.add(talk);
+
+        var staredTalk = talkList.start(ID);
+        staredTalk.next();
+
+        var p = staredTalk.getPointerClone();
+
+        var resumeTalk = talkList.resume(p);
+
+        expect(talk).to.be.equal(staredTalk)
+            .and.to.be.equal(resumeTalk);
     });
 });

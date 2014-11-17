@@ -48,7 +48,7 @@ export class TalkList {
      * 会話を開始する
      * @returns 開始する会話、見つからない場合は null
      */
-    public startTalk(id: string): talk.Talk {
+    public start(id: string): talk.Talk {
         return this.talksHash[id] || null;
     }
 
@@ -57,7 +57,7 @@ export class TalkList {
      * @param   p 会話位置を示すポインタ
      * @returns 再開した会話、再開できない場合は null
      */
-    public resumeTalk(p: pointer.Pointer): talk.Talk {
+    public resume(p: pointer.Pointer): talk.Talk {
         if (!p) return null;
         if (!p.talkId) return null;
 
@@ -66,9 +66,9 @@ export class TalkList {
         if (!talk) return null;
 
         // 会話を再開
-        throw 'Not Implemented';
+        talk.resume(p);
 
-        return null;
+        return talk;
     }
 
     /**

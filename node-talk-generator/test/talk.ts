@@ -27,8 +27,8 @@ describe('Talk class', () => {
         talkList.add(new tg.Talk(TALK_ID_1));
         talkList.add(new tg.Talk(TALK_ID_2, true));
 
-        talk1 = talkList.startTalk(TALK_ID_1);
-        talk2 = talkList.startTalk(TALK_ID_2);
+        talk1 = talkList.start(TALK_ID_1);
+        talk2 = talkList.start(TALK_ID_2);
     });
 
     afterEach(() => {
@@ -383,6 +383,84 @@ describe('Talk class', () => {
             talk1.next();
             var next = talk1.next();
             expect(next.sentence).to.be.empty;
+        });
+    });
+
+    describe('Talk#resume() (3 sentence)', () => {
+        var s: tg.Sentence;
+        var s2: tg.Sentence;
+        var s3: tg.Sentence;
+
+        beforeEach(() => {
+            s = new tg.Sentence('id_1');
+            s2 = new tg.Sentence('id_2');
+            s3 = new tg.Sentence('id_3');
+
+            talk1.add(s);
+            talk1.add(s2);
+            talk1.add(s3)
+        });
+
+        it('#resume(blank)', () => {
+            var p = talk1.getPointerClone();
+
+            talk1.next();
+            talk1.next();
+
+            talk1.resume(p);
+
+            var next = talk1.next();
+            expect(next).to.not.be.empty;
+            expect(next.sentence).to.equal(s);
+        });
+
+        it('#resume(s)', () => {
+            talk1.next();
+
+            var p = talk1.getPointerClone();
+
+            talk1.next();
+            talk1.next();
+
+            talk1.resume(p);
+
+            var next = talk1.next();
+            expect(next).to.not.be.empty;
+            expect(next.sentence).to.equal(s2);
+        });
+
+        it('#resume(s2)', () => {
+            talk1.next();
+            talk1.next();
+
+            var p = talk1.getPointerClone();
+
+            talk1.reset();
+            talk1.resume(p);
+
+            var next = talk1.next();
+            expect(next.sentence).to.equal(s3);
+        });
+
+        it('#resume(s3)', () => {
+            talk1.next();
+            talk1.next();
+            talk1.next();
+
+            var p = talk1.getPointerClone();
+
+            talk1.reset();
+            talk1.resume(p);
+
+            var next = talk1.next();
+            expect(next).to.be.null;
+        });
+
+        it('#resume(invalid)', () => {
+            var p = talk1.getPointerClone();
+            p.talkId = 'wrong_talk_id';
+
+            expect(() => { talk1.resume(p); }).to.throw();
         });
     });
 });
