@@ -61,16 +61,16 @@ describe('Pointer class', () => {
         expect(p.equals(q)).to.be.false;
     });
 
-    it('Pointer (switchId) p.equals(q)', () => {
-        p.switchId = 'p';
-        q.switchId = 'p';
+    it('Pointer (branchId) p.equals(q)', () => {
+        p.branchId = 'p';
+        q.branchId = 'p';
 
         expect(p.equals(q)).to.be.true;
     });
 
-    it('Pointer (switchId) !p.equals(q)', () => {
-        p.switchId = 'p';
-        q.switchId = 'q';
+    it('Pointer (branchId) !p.equals(q)', () => {
+        p.branchId = 'p';
+        q.branchId = 'q';
 
         expect(p.equals(q)).to.be.false;
     });
@@ -85,7 +85,7 @@ describe('Pointer class', () => {
     it('Pointer#toJSON() equals (all)', () => {
         p.talkId = 'talkId';
         p.sentenceId = 'sentenceId';
-        p.switchId = 'switchId';
+        p.branchId = 'branchId';
 
         var str = JSON.stringify(p);
         var p2 = new tg.Pointer(JSON.parse(str));

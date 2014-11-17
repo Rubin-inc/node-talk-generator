@@ -11,15 +11,15 @@ export class Pointer {
      * JSON へシリアライズするキー
      */
     private static SERIALIZE_KEYS = [
-        "talkId", "sentenceId", "switchId"
+        "talkId", "sentenceId", "branchId"
     ];
 
     /**
      * 会話 ID
      */
-    public talkId: string;
-    public sentenceId: string;
-    public switchId: string;
+    public talkId: string = null;
+    public sentenceId: string = null;
+    public branchId: string = null;
 
     /**
      * ポインタのコピーを作成する
@@ -33,9 +33,10 @@ export class Pointer {
                 pointer = JSON.parse(pointer);
             }
 
-            this.talkId = pointer.talkId;
-            this.sentenceId = pointer.sentenceId;
-            this.switchId = pointer.switchId;
+            var pointer_: Pointer = pointer;
+            this.talkId = pointer_.talkId;
+            this.sentenceId = pointer_.sentenceId;
+            this.branchId = pointer_.branchId;
         }
     }
 
@@ -47,7 +48,7 @@ export class Pointer {
 
         return this.talkId == pointer.talkId &&
             this.sentenceId == pointer.sentenceId &&
-            this.switchId == pointer.switchId;
+            this.branchId == pointer.branchId;
     }
 
     /**

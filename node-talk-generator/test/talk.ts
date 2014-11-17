@@ -114,11 +114,20 @@ describe('Talk class', () => {
     });
 
     it('Talk#items() should include sentence', () => {
-        var s= new tg.Sentence('id');
+        var s = new tg.Sentence('id');
         talk1.add(s);
 
         expect(talk1.items()).to.include(s);
     });
 
+    it('Talk#add() same Sentence#id', () => {
+        var S_ID = 'sentence_id';
+        var s1 = new tg.Sentence(S_ID);
+        var s2 = new tg.Sentence(S_ID);
 
+        talk1.add(s1);
+        talk1.add(s2);
+
+        expect(talk1.length).to.least(2); // >= 2
+    });
 });

@@ -8,6 +8,9 @@ node-talk-generator
 * [Grunt](http://gruntjs.com)
 * [tsd](http://definitelytyped.org/tsd/)
 
+## Usage
+TODO
+
 ## Build
 First, you must install developer tools.
 
@@ -26,7 +29,7 @@ $ grunt build
 ```
 
 ## Test
-You can test as following.
+There are test scripts used [Mocha](http://mochajs.org) and [Chai](http://chaijs.com). You can test as following.
 
 ```
 $ cd node-talk-generator

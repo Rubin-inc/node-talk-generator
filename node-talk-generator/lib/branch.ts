@@ -6,6 +6,7 @@ import _ = require('lodash');
 /**
  * 条件分岐を表すクラス
  */
-export class Switch {
+export class Branch {
+    public constructor(public id: string) { }
 
 } 
