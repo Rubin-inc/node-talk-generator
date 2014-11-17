@@ -19,11 +19,14 @@ module.exports = (grunt) ->
                 src: './test/*.ts'
         
         clean:
-            vs: ['./bin', './obj']
-            js: ['*.js', '*/*.js']
-            map: ['*.map', '*/*.map']
+            dev: [
+                './bin', './obj'
+                '*.js', '*/*.js'
+                '*.map', '*/*.map'
+                ]
     
     grunt.registerTask 'default', ['build']
-    grunt.registerTask 'build', ['clean', 'typescript']
+    grunt.registerTask 'build', ['clean:dev', 'typescript']
+    grunt.registerTask 'install', ['typescript']
     
     require('load-grunt-tasks')(grunt)
