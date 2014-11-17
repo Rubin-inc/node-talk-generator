@@ -13,7 +13,7 @@
   },
   "CoffeeScript": {
     "CompileOnBuild": false,
-    "CompileOnSave": true,
+    "CompileOnSave": false,
     "GenerateSourceMaps": true,
     "LintOnBuild": false,
     "LintOnSave": true,
@@ -21,7 +21,7 @@
     "MinifyInPlace": false,
     "OutputDirectory": null,
     "ProcessSourceMapsForEditorEnhancements": true,
-    "ShowPreviewPane": true,
+    "ShowPreviewPane": false,
     "WrapClosure": true
   },
   "Css": {

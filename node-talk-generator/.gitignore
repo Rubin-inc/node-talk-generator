@@ -1,2 +1,10 @@
 /bin
 /obj
+
+Gruntfile.js
+Gruntfile.js.map
+Gruntfile.min.js
+Gruntfile.min.js.map
+
+*.js
+*.js.map
