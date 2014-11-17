@@ -1,8 +1,16 @@
-node_modules
+/bin
+/obj
 
-# Visual Studio
+Gruntfile.js
+Gruntfile.js.map
+Gruntfile.min.js
+Gruntfile.min.js.map
+
+*.js
+*.js.map
+
 *.suo
 *.csproj.user
 
-# TypeScript
+node_modules
 typings
