@@ -105,19 +105,21 @@ describe('Talk class', () => {
         expect(talk1.length).to.equal(0);
     });
 
-    it('Talk#items() !== null', () => {
-        expect(talk1.items()).not.to.be.null;
-    });
+    describe('Talk#items()', () => {
+        it('#items() !== null', () => {
+            expect(talk1.items()).not.to.be.null;
+        });
 
-    it('Talk#items().length == 0', () => {
-        expect(talk1.items().length).to.equal(0);
-    });
+        it('#items().length == 0', () => {
+            expect(talk1.items().length).to.equal(0);
+        });
 
-    it('Talk#items() should include sentence', () => {
-        var s = new tg.Sentence('id');
-        talk1.add(s);
+        it('#items() should include sentence', () => {
+            var s = new tg.Sentence('id');
+            talk1.add(s);
 
-        expect(talk1.items()).to.include(s);
+            expect(talk1.items()).to.include(s);
+        });
     });
 
     it('Talk#add() same Sentence#id', () => {
@@ -129,5 +131,51 @@ describe('Talk class', () => {
         talk1.add(s2);
 
         expect(talk1.length).to.least(2); // >= 2
+    });
+
+
+    describe('Talk#add() (branch)', () => {
+        var branch: tg.Branch;
+
+        beforeEach(() => {
+            branch = new tg.Branch('id');
+            talk1.add(branch);
+        });
+
+        it('length === 0', () => {
+            expect(talk1.length).to.equal(0);
+        });
+
+        it('items().length === 0', () => {
+            expect(talk1.items().length).to.equal(0);
+        });
+
+        it('#branch equals', () => {
+            expect(talk1.branch).to.equal(branch);
+        });
+    });
+
+    describe('Talk#next() (sentence)', () => {
+        var s: tg.Sentence;
+
+        beforeEach(() => {
+            var s = new tg.Sentence('id');
+            talk1.add(s);
+        });
+
+        it('#next() != null', () => {
+            expect(talk1.next()).not.to.be.null;
+        });
+
+        it('#next().branch is empty', () => {
+            var next = talk1.next();
+            expect(next.branch).to.be.empty;
+        });
+
+        it('#next().sentence isn\'t empty', () => {
+            var next = talk1.next();
+            expect(next.sentence).not.to.be.empty;
+        });
+
     });
 });

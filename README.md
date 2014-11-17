@@ -33,5 +33,6 @@ There are test scripts used [Mocha](http://mochajs.org) and [Chai](http://chaijs
 
 ```
 $ cd node-talk-generator
+$ npm install -g mocha
 $ npm test
 ```
