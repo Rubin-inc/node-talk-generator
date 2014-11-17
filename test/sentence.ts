@@ -58,4 +58,12 @@ describe('Sentence class', () => {
 
         expect(s.length).to.be.above(0); // > 0
     });
+
+    it('Sentence#clear()', () => {
+        var p = new tg.Phrase('phrase_id');
+        s.add(p);
+        s.clear();
+
+        expect(s.length).to.be.equal(0);
+    });
 });
