@@ -2,7 +2,7 @@
   "name": "talk-generator",
   "version": "0.0.0",
   "description": "",
-  "main": "dest/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "mocha -R spec test/*.js",
     "tsd": "tsd reinstall",
