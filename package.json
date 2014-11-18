@@ -1,38 +1,40 @@
 {
-  "name": "talk-generator",
-  "version": "0.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "mocha -R spec test/**/*.js",
-    "tsd": "tsd reinstall",
-    "build": "grunt build",
-    "watch": "grunt watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/pine613/node-talk-generator.git"
-  },
-  "author": "Pine Mizune",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pine613/node-talk-generator/issues"
-  },
-  "homepage": "https://github.com/pine613/node-talk-generator",
-  "private": true,
-  "dependencies": {
-    "async": "^0.9.0",
-    "lodash": "^2.4.1"
-  },
-  "devDependencies": {
-    "chai": "^1.10.0",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt": "^0.4.5",
-    "typescript": "^1.3.0",
-    "grunt-typescript": "^0.4.4",
-    "load-grunt-tasks": "^1.0.0",
-    "mocha": "^2.0.1",
-    "tsd": "^0.5.7",
-    "grunt-este-watch": "^0.1.18"
-  }
+    "name": "talk-generator",
+    "version": "0.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "scripts": {
+        "test": "mocha -R spec test/**/*.js",
+        "tsd": "tsd reinstall",
+        "build": "grunt build",
+        "watch": "grunt watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/pine613/node-talk-generator.git"
+    },
+    "author": {
+        "name": "Pine Mizune",
+        "url": "https://github.com/pine613"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pine613/node-talk-generator/issues"
+    },
+    "homepage": "https://github.com/pine613/node-talk-generator",
+    "private": true,
+    "dependencies": {
+        "lodash": "^2.4.1"
+    },
+    "devDependencies": {
+        "chai": "^1.10.0",
+        "grunt-contrib-clean": "^0.6.0",
+        "grunt": "^0.4.5",
+        "typescript": "^1.3.0",
+        "grunt-typescript": "^0.4.4",
+        "load-grunt-tasks": "^1.0.0",
+        "mocha": "^2.0.1",
+        "tsd": "^0.5.7",
+        "grunt-este-watch": "^0.1.18"
+    }
 }
