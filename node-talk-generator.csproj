@@ -43,6 +43,7 @@
     <TypeScriptCompile Include="lib\branch.ts" />
     <TypeScriptCompile Include="lib\talk.ts" />
     <TypeScriptCompile Include="lib\talkList.ts" />
+    <TypeScriptCompile Include="test\phrase\phrase.ts" />
     <TypeScriptCompile Include="test\phrase\basicPhrase.ts" />
     <TypeScriptCompile Include="test\sentence.ts" />
     <TypeScriptCompile Include="test\branch.ts" />
