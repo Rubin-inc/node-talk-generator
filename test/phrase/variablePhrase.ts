@@ -97,6 +97,20 @@ describe('VariablePhrase class', () => {
         });
     });
 
+    describe('Phrase#getText() not throw Error', () => {
+        it('From Phrase#getText()', () => {
+            expect(() => {
+               vp.getText({}); // 抽象メソッド
+            }).to.not.throw(Error);
+        });
+
+        it('From Sentence#getText()', () => {
+            expect(() => {
+                s.getText({}); // 文章経由で BasicPhrase#getText() を呼び出す
+            }).to.not.throw(Error);
+        });
+    });
+
     describe('VariablePhrase#getText()', () => {
         var NAME: string;
         var VALUE: string;
@@ -157,6 +171,11 @@ describe('VariablePhrase class', () => {
         it('name = \'valid_name\'', () => {
             vp.variableName = NAME;
             expect(vp.getText(arg)).to.equal(VALUE);
+        });
+
+        it('name = \'valid_name\' (by sentence)', () => {
+            vp.variableName = NAME;
+            expect(s.getText(arg)).to.equal(VALUE);
         });
 
         it('name = \'0\'', () => {
