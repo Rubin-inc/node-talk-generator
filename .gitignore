@@ -1,11 +1,22 @@
-/bin
-/obj
-
+# Gruntfile
 Gruntfile.js
 Gruntfile.js.map
 Gruntfile.min.js
 Gruntfile.min.js.map
 
+# Visual Studio
+*.suo
+*.csproj.user
+
+/bin
+/obj
+
+# Node.js
+node_modules
+typings
+npm-debug.log
+
+# JavaScript
 /*.js
 /*.js.map
 
@@ -14,9 +25,3 @@ Gruntfile.min.js.map
 
 /test/**/*.js
 /test/**/*.js.map
-
-*.suo
-*.csproj.user
-
-node_modules
-typings
