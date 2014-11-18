@@ -48,9 +48,15 @@ export class Branch {
      */
     private answers: BranchAnswerSentence[] = [];
 
+    /**
+     * 質問文
+     */
+    public question: sentence.Sentence = null;
+
     public constructor(
         public id: string,
-        public question?: sentence.Sentence) {
+        question: sentence.Sentence = null) {
+        this.question = question;
     }
 
     /***
