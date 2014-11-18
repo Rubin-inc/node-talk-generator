@@ -6,6 +6,7 @@ import branch = require('./lib/branch');
 import phrase = require('./lib/phrase/index');
 
 export interface TalkNext extends talk.TalkNext { }
+export interface BranchAnswer extends branch.BranchAnswer { }
 
 export declare class Talk extends talk.Talk { }
 export declare class TalkList extends talkList.TalkList { }
