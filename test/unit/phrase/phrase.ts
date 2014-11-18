@@ -47,6 +47,10 @@ describe('Phrase class', () => {
         expect(p).to.have.length(1);
     });
 
+    it('Phrase#add() returns', () => {
+        expect(p.add('foo')).to.equal(p);
+    });
+
     it('Phrase#clear()', () => {
         p.add('foo');
         p.clear();
