@@ -83,9 +83,14 @@ export class Branch {
 
     /**
      * 質問文を取得する
+     * 質問文が取得できない場合は、空文字を返す
      */
     public getQuestionText(args: phrase.PhraseArguments): string {
-        return this.question.getText(args);
+        if (this.question) {
+            return this.question.getText(args);
+        }
+
+        return '';
     }
 
     /**
