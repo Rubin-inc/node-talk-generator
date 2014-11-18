@@ -100,4 +100,4 @@ export class Branch {
     public get length(): number {
         return this.answers.length;
     }
-} 
+}
