@@ -57,6 +57,18 @@ export class VariablePhrase extends basicPhrase.BasicPhrase {
     }
 
     /**
+     * フレーズを初期化する
+     * 変数名、接頭語、接尾語はクリアされる
+     */
+    public clear(): VariablePhrase {
+        this.variableName = null;
+        this.prefix = '';
+        this.suffix = '';
+
+        return this;
+    }
+
+    /**
      * 変数の値を取得する
      * 変数の値が存在しない場合、空文字として扱う (運用時を考え、エラーにはしない)
      */
