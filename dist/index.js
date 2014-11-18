@@ -9,5 +9,7 @@ module.exports = {
     TalkList: talkList.TalkList,
     Sentence: sentence.Sentence,
     Pointer: pointer.Pointer,
-    Branch: branch.Branch
+    Branch: branch.Branch,
+    BasicPhrase: phrase.BasicPhrase,
+    Phrase: phrase.Phrase,
 };

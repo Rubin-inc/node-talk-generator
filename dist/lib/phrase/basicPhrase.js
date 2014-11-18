@@ -1,8 +1,12 @@
 /// <reference path="../../typings/node/node.d.ts" />
-// フレーズの抽象クラスの実装
 var BasicPhrase = (function () {
-    function BasicPhrase() {
+    function BasicPhrase(id) {
+        this.id = id;
     }
+    /**
+     * フレーズを生成し返すメソッド
+     * 抽象メソッド、サブクラスで実装すること
+     */
     BasicPhrase.prototype.getText = function (args) {
         throw new Error('Not Implemented');
     };
