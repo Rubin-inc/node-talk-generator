@@ -26,3 +26,10 @@ There are test scripts used [Mocha](http://mochajs.org) and [Chai](http://chaijs
 ```
 $ npm test
 ```
+
+## Develop
+It's automatic for this project to compile as following.
+
+```
+$ npm run watch
+```
