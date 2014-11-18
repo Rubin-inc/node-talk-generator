@@ -9,6 +9,6 @@ import basicPhrase = require('./basicPhrase');
 
 export class BranchPhrase extends basicPhrase.BasicPhrase {
     public getText(): string {
-        return null;
+        throw 'Not Implemented';
     }
 } 
