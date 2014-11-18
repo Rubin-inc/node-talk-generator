@@ -384,6 +384,13 @@ describe('Talk class', () => {
             var next = talk1.next();
             expect(next.sentence).to.be.empty;
         });
+
+        it('#next() x3 === null', () => {
+            talk1.next();
+            talk1.next();
+            var next = talk1.next();
+            expect(next).to.be.null
+        });
     });
 
     describe('Talk#resume() (3 sentence)', () => {
