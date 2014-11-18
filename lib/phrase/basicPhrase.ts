@@ -2,11 +2,13 @@
 
 // フレーズの抽象クラスの実装
 
+import args = require('./args');
+
 export class BasicPhrase {
     public constructor(public id: string) {
     }
 
-    public getText(args: { [key: string]: string }): string {
+    public getText(args: args.PhraseArguments): string {
         throw new Error('Not Implemented');
     }
 }

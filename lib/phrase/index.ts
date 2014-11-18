@@ -6,6 +6,9 @@ import basicPhrase = require('./basicPhrase');
 import phrase = require('./phrase');
 import variablePhrase = require('./variablePhrase');
 import branchPhrase = require('./branchPhrase');
+import args = require('./args');
+
+export interface PhraseArguments extends args.PhraseArguments { }
 
 export declare class BasicPhrase extends basicPhrase.BasicPhrase { }
 export declare class Phrase extends phrase.Phrase { }

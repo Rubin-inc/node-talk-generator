@@ -6,13 +6,14 @@
 import _ = require('lodash');
 
 import basicPhrase = require('./basicPhrase');
+import args = require('./args');
 
 export class Phrase extends basicPhrase.BasicPhrase {
     public constructor(id: string) {
         super(id);
     }
 
-    public getText(args: { [key: string]: string }): string {
+    public getText(args: args.PhraseArguments): string {
         return null;
     }
 }

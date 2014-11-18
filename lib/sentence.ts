@@ -14,6 +14,14 @@ export class Sentence {
     public constructor(public id: string) { }
 
     /**
+     * 文章を構成し、返す
+     */
+    public getText(args: phrase.PhraseArguments): string {
+        var texts = _.map(this.phrases, p => p.getText(args)); // 各フレーズを変換
+        return texts.join('');
+    }
+
+    /**
      * フレーズを追加する
      */
     public add(phrase: phrase.BasicPhrase): Sentence {
@@ -22,14 +30,24 @@ export class Sentence {
     }
 
     /**
-     * 文章の構成要素をクリアする
+     * フレーズ一覧をクリアする
      */
     public clear(): Sentence {
         this.phrases.length = 0;
         return this;
     }
 
+    /**
+     * フレーズの個数を取得する
+     */
     public get length(): number {
         return this.phrases.length;
+    }
+
+    /**
+     * フレーズ一覧を取得する
+     */
+    public items(): phrase.BasicPhrase[] {
+        return this.phrases;
     }
 }

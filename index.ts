@@ -12,6 +12,10 @@ export declare class TalkList extends talkList.TalkList { }
 export declare class Sentence extends sentence.Sentence { }
 export declare class Pointer extends pointer.Pointer { }
 export declare class Branch extends branch.Branch { }
+
+// Phrase
+export interface PhraseArguments extends phrase.PhraseArguments { }
+export declare class BasicPhrase extends phrase.BasicPhrase { }
 export declare class Phrase extends phrase.Phrase { }
 
 module.exports = {
@@ -20,5 +24,6 @@ module.exports = {
     Sentence: sentence.Sentence,
     Pointer: pointer.Pointer,
     Branch: branch.Branch,
+    BasicPhrase: phrase.BasicPhrase,
     Phrase: phrase.Phrase,
 };
