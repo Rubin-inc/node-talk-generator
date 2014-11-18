@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "description": "",
     "main": "dist/index.js",
+    "files": [ "dist", "*.md" ],
     "scripts": {
         "test": "mocha -R spec test/unit/*.js test/system/*.js",
         "tsd": "tsd reinstall",
