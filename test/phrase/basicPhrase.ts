@@ -12,6 +12,7 @@ import tg = require('../../index');
 var expect = chai.expect;
 
 describe('BasicPhrase class', () => {
+    var P_ID = 'phrase_id';
     var s: tg.Sentence;
     var bp: tg.BasicPhrase;
 
@@ -20,7 +21,7 @@ describe('BasicPhrase class', () => {
     });
 
     beforeEach(() => {
-        bp = new tg.BasicPhrase('id');
+        bp = new tg.BasicPhrase(P_ID);
         s.add(bp);
     });
 
@@ -38,6 +39,10 @@ describe('BasicPhrase class', () => {
 
     it('BasicPhrase isn\'t empty', () => {
         expect(bp).to.not.be.empty;
+    });
+
+    it('BasicPhrase#id', () => {
+        expect(bp.id).to.equal(P_ID);
     });
 
     describe('BasicPhrase#getText() throw Error', () => {
