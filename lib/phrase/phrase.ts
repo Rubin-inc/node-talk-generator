@@ -39,6 +39,14 @@ export class Phrase extends basicPhrase.BasicPhrase {
     }
 
     /**
+     * フレーズで用いるテキスト一覧をクリアする
+     */
+    public clear(): Phrase {
+        this.texts.length = 0;
+        return this;
+    }
+
+    /**
      * 追加されているテキストの個数を返す
      */
     public get length(): number {
