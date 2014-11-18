@@ -58,4 +58,18 @@ describe('BasicPhrase class', () => {
             }).to.throw(Error);
         });
     });
+
+    describe('BasicPhrase#clear() throw Error', () => {
+        it('From BasicPhrase#clear()', () => {
+            expect(() => {
+                bp.getText({}); // 抽象メソッド
+            }).to.throw(Error);
+        });
+
+        it('From Sentence#clear()', () => {
+            expect(() => {
+                s.getText({}); // 文章経由で BasicPhrase#clear() を呼び出す
+            }).to.throw(Error);
+        });
+    });
 }); 

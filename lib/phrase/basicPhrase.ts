@@ -15,4 +15,13 @@ export class BasicPhrase {
     public getText(args: args.PhraseArguments): string {
         throw new Error('Not Implemented');
     }
+
+    /**
+     * フレーズのデータを初期化するメソッド
+     * ID データは初期化されない
+     * 抽象メソッド、サブクラスで実装すること
+     */
+    public clear(): BasicPhrase {
+        throw new Error('Not Implemented');
+    }
 }
