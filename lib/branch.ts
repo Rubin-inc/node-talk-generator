@@ -93,4 +93,11 @@ export class Branch {
             };
         });
     }
+
+    /**
+     * 解答の数を返す
+     */
+    public get length(): number {
+        return this.answers.length;
+    }
 } 
