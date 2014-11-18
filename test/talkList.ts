@@ -37,12 +37,39 @@ describe('TalkList class', () => {
         expect(talkList.length).to.be.above(0); // > 0
     });
 
+    it('TalkList#add() returns', () => {
+        var talk = new tg.Talk('id');
+        expect(talkList.add(talk)).to.equal(talkList);
+    });
+
     it('TalkList#clear()', () => {
         var talk = new tg.Talk('id');
         talkList.add(talk);
         talkList.clear();
 
         expect(talkList.length).to.equal(0);
+    });
+
+    it('TalkList#clear() returns', () => {
+        var talk = new tg.Talk('id');
+        talkList.add(talk);
+
+        expect(talkList.clear()).to.equal(talkList);
+    });
+
+    it('TalkList#remove()', () => {
+        var talk = new tg.Talk('id');
+        talkList.add(talk);
+        talkList.remove(talk);
+
+        expect(talkList).to.have.length(0);
+    });
+
+    it('TalkList#remove() returns', () => {
+        var talk = new tg.Talk('id');
+        talkList.add(talk);
+
+        expect(talkList.remove(talk)).to.equal(talkList);
     });
 
     it('TalkList#items() !== null', () => {
