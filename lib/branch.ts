@@ -25,9 +25,29 @@ export interface BranchAnswer {
 }
 
 /**
+ * 条件分岐の文章を表す
+ */
+interface BranchAnswerSentence {
+    /**
+     * 解答文章
+     */
+    sentence: sentence.Sentence;
+
+    /**
+     * 次の会話
+     */
+    next: talk.Talk;
+}
+
+/**
  * 条件分岐を表すクラス
  */
 export class Branch {
+    /**
+     * 解答の一覧
+     */
+    private answers: BranchAnswerSentence[] = [];
+
     public constructor(
         public id: string,
         public question: sentence.Sentence) {
@@ -35,11 +55,23 @@ export class Branch {
 
     /***
      * 条件分岐を追加する
-     * @param answer 質問文
-     * @param next   次の会話
+     * @param sentence 質問文
+     * @param next     次の会話
      */
-    public add(answer: sentence.Sentence, next: talk.Talk): Branch {
-        throw 'Not Implemented';
+    public add(sentence: sentence.Sentence, next: talk.Talk): Branch {
+        this.answers.push({
+            sentence: sentence,
+            next: next
+        });
+
+        return this;
+    }
+
+    /**
+     * 条件分岐の質問文と解答のデータを削除する
+     */
+    public clear(): Branch {
+        this.answers.length = 0;
         return this;
     }
 
@@ -53,8 +85,12 @@ export class Branch {
     /**
      * 解答一覧を取得する
      */
-    public getAnswers(args: phrase.PhraseArguments): BranchAnswer[]{
-        throw 'Not Implemented';
-        return [];
+    public getAnswers(args: phrase.PhraseArguments): BranchAnswer[] {
+        return _.map(this.answers, x => {
+            return {
+                text: x.sentence.getText(args),
+                next: x.next
+            };
+        });
     }
 } 
