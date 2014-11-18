@@ -45,6 +45,7 @@
     <TypeScriptCompile Include="lib\talkList.ts" />
     <TypeScriptCompile Include="test\phrase\phrase.ts" />
     <TypeScriptCompile Include="test\phrase\basicPhrase.ts" />
+    <TypeScriptCompile Include="test\phrase\variablePhrase.ts" />
     <TypeScriptCompile Include="test\sentence.ts" />
     <TypeScriptCompile Include="test\branch.ts" />
     <TypeScriptCompile Include="test\pointer.ts" />
