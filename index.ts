@@ -17,6 +17,7 @@ export declare class Branch extends branch.Branch { }
 export interface PhraseArguments extends phrase.PhraseArguments { }
 export declare class BasicPhrase extends phrase.BasicPhrase { }
 export declare class Phrase extends phrase.Phrase { }
+export declare class VariablePhrase extends phrase.VariablePhrase { }
 
 module.exports = {
     Talk: talk.Talk,
@@ -26,4 +27,5 @@ module.exports = {
     Branch: branch.Branch,
     BasicPhrase: phrase.BasicPhrase,
     Phrase: phrase.Phrase,
+    VariablePhrase: phrase.VariablePhrase
 };
