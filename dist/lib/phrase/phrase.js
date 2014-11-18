@@ -36,6 +36,13 @@ var Phrase = (function (_super) {
         this.texts.push(text);
         return this;
     };
+    /**
+     * フレーズで用いるテキスト一覧をクリアする
+     */
+    Phrase.prototype.clear = function () {
+        this.texts.length = 0;
+        return this;
+    };
     Object.defineProperty(Phrase.prototype, "length", {
         /**
          * 追加されているテキストの個数を返す
