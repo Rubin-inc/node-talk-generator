@@ -23,8 +23,20 @@ module.exports = (grunt) ->
                 '*.js', '*/*.js'
                 '*.map', '*/*.map'
                 ]
+        
+        esteWatch:
+            options:
+                dirs: ['.', 'lib/**', 'test/**']
+                livereload:
+                    enabled: false
+            
+            ts: (filepath) ->
+                console.log filepath
+                grunt.config ['typescript', 'dev', 'src'], [filepath]
+                ['typescript:dev']
     
     grunt.registerTask 'default', ['typescript:dev']
-    grunt.registerTask 'build', ['clean:dev', 'typescript']
+    grunt.registerTask 'build', ['clean:dev', 'typescript:dev', 'typescript:prod']
+    grunt.registerTask 'watch', ['esteWatch']
     
     require('load-grunt-tasks')(grunt)
