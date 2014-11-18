@@ -15,7 +15,6 @@ TODO
 You must install dependency libraries for this project.
 
 ```
-$ cd node-talk-generator
 $ npm install
 $ npm run tsd
 $ npm run build
@@ -25,6 +24,5 @@ $ npm run build
 There are test scripts used [Mocha](http://mochajs.org) and [Chai](http://chaijs.com). You can test as following.
 
 ```
-$ cd node-talk-generator
 $ npm test
 ```
