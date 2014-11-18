@@ -35,6 +35,7 @@
     <TypeScriptCompile Include="lib\phrase\args.ts" />
     <TypeScriptCompile Include="lib\phrase\basicPhrase.ts" />
     <TypeScriptCompile Include="lib\phrase\branchPhrase.ts" />
+    <TypeScriptCompile Include="lib\condition.ts" />
     <TypeScriptCompile Include="lib\phrase\index.ts" />
     <TypeScriptCompile Include="lib\phrase\phrase.ts" />
     <TypeScriptCompile Include="lib\phrase\variablePhrase.ts" />
@@ -43,6 +44,7 @@
     <TypeScriptCompile Include="lib\branch.ts" />
     <TypeScriptCompile Include="lib\talk.ts" />
     <TypeScriptCompile Include="lib\talkList.ts" />
+    <TypeScriptCompile Include="test\system\system.ts" />
     <TypeScriptCompile Include="test\test.d.ts" />
     <TypeScriptCompile Include="test\unit\phrase\phrase.ts" />
     <TypeScriptCompile Include="test\unit\phrase\basicPhrase.ts" />
@@ -53,9 +55,7 @@
     <TypeScriptCompile Include="test\unit\talkList.ts" />
     <TypeScriptCompile Include="test\unit\talk.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="test\system\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>
