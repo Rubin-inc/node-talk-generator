@@ -50,7 +50,7 @@ export class Branch {
 
     public constructor(
         public id: string,
-        public question: sentence.Sentence) {
+        public question?: sentence.Sentence) {
     }
 
     /***
