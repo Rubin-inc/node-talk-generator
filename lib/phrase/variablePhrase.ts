@@ -47,6 +47,7 @@ export class VariablePhrase extends basicPhrase.BasicPhrase {
     /**
      * フレーズを生成して返す
      * 変数名が無効な場合、変数値は空文字として扱う
+     * 変数値が文字列でない場合、変数値は空文字として扱う
      */
     public getText(args: args.PhraseArguments): string {
         var prefix = this.prefix || '';
