@@ -47,6 +47,8 @@
     <TypeScriptCompile Include="lib\talkList.ts" />
     <TypeScriptCompile Include="test\system\system.ts" />
     <TypeScriptCompile Include="test\test.d.ts" />
+    <TypeScriptCompile Include="test\unit\phrase\condition.ts" />
+    <TypeScriptCompile Include="test\unit\phrase\operator.ts" />
     <TypeScriptCompile Include="test\unit\phrase\phrase.ts" />
     <TypeScriptCompile Include="test\unit\phrase\basicPhrase.ts" />
     <TypeScriptCompile Include="test\unit\phrase\variablePhrase.ts" />
