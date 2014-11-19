@@ -44,7 +44,7 @@ export class BranchPhrase extends basicPhrase.BasicPhrase {
         // 条件に合う項目を抽出する
         // 条件が無い場合は、成立しているとみなす
         var items = _.filter(this.conditions, cond => {
-            if (cond.cond) {
+            if (cond && cond.cond) {
                 return cond.cond.getResult(args_);
             }
 
@@ -55,7 +55,7 @@ export class BranchPhrase extends basicPhrase.BasicPhrase {
         var sample = _.sample(items);
 
         // 文字列に変換
-        return sample.text || '';
+        return sample ? sample.text || '' : '';
     }
 
     /**
