@@ -11,6 +11,9 @@ node-talk-generator
 ## Usage
 TODO
 
+### Configration loader
+- [node-talk-xlsx-loader](https://github.com/pine613/node-talk-generator-xlsx-loader)
+
 ## Build
 You must install dependency libraries for this project.
 
