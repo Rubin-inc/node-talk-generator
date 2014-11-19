@@ -2,6 +2,8 @@
 
 // 演算子の定義
 
+import _ = require('lodash');
+
 /**
  * 演算子の処理関数の定義
  */
@@ -9,14 +11,18 @@ export interface OperatorFunction {
     (lhs: string, rhs: string): boolean;
 }
 
-/**
- * 数値演算子を文字列引数に対応させるラッパー
- */
-function wrapNumber(func: (lhs: number, rhs: number) => boolean) {
+
+function wrapNumberImpl(func: (lhs: number, rhs: number) => boolean) {
     return (lhs: string, rhs: string) => {
         return func(Number(lhs), Number(rhs));
     };
 }
+
+/**
+ * 数値演算子を文字列引数に対応させるラッパー
+ * 戻り値をキャッシュするため、同一関数に対しては同じ関数オブジェクトを返す
+ */
+var wrapNumber = _.memoize(wrapNumberImpl);
 
 var equal = (lhs: string, rhs: string) => lhs == rhs;
 var notEqual = (lhs: string, rhs: string) => lhs != rhs;
@@ -36,8 +42,8 @@ export var OPERATORS: { [key: string]: OperatorFunction } = {
     "<>": notEqual,
     "≠": notEqual,
     ">": wrapNumber(greater),
-    "≧": wrapNumber(greaterOrEqual),
     ">=": wrapNumber(greaterOrEqual),
+    "≧": wrapNumber(greaterOrEqual),
     "<": wrapNumber(less),
     "≦": wrapNumber(lessThanEqual),
     "<=": wrapNumber(lessThanEqual),
