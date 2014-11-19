@@ -31,7 +31,6 @@ module.exports = (grunt) ->
                     enabled: false
             
             ts: (filepath) ->
-                console.log filepath
                 grunt.config ['typescript', 'dev', 'src'], [filepath]
                 ['typescript:dev']
     
