@@ -8,6 +8,9 @@ import _ = require('lodash');
 import args = require('./args');
 import operator = require('./operator');
 
+/**
+ * 条件のデータ
+ */
 interface ConditionItem {
     variableName: string;
     operator: string;
