@@ -1,6 +1,7 @@
 /// <reference path="../typings/node/node.d.ts" />
 /// <reference path="../typings/lodash/lodash.d.ts" />
 var _ = require('lodash');
+var talk = require('./talk');
 /**
  * 会話の現在位置を表すクラス
  */
@@ -12,6 +13,7 @@ var Pointer = (function () {
         this.talkId = null;
         this.sentenceId = null;
         this.branchId = null;
+        this.inputType = 0 /* None */;
         if (pointer) {
             if (_.isString(pointer)) {
                 pointer = JSON.parse(pointer);
@@ -20,6 +22,7 @@ var Pointer = (function () {
             this.talkId = pointer_.talkId;
             this.sentenceId = pointer_.sentenceId;
             this.branchId = pointer_.branchId;
+            this.inputType = pointer_.inputType;
         }
     }
     /**
@@ -28,7 +31,7 @@ var Pointer = (function () {
     Pointer.prototype.equals = function (pointer) {
         if (!pointer)
             return false;
-        return this.talkId == pointer.talkId && this.sentenceId == pointer.sentenceId && this.branchId == pointer.branchId;
+        return this.talkId === pointer.talkId && this.sentenceId === pointer.sentenceId && this.branchId === pointer.branchId && this.inputType === pointer.inputType;
     };
     /**
      * ポインタを JSON 形式にシリアライズする
@@ -44,7 +47,8 @@ var Pointer = (function () {
     Pointer.SERIALIZE_KEYS = [
         "talkId",
         "sentenceId",
-        "branchId"
+        "branchId",
+        "inputType"
     ];
     return Pointer;
 })();

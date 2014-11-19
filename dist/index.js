@@ -4,14 +4,15 @@ var sentence = require('./lib/sentence');
 var pointer = require('./lib/pointer');
 var branch = require('./lib/branch');
 var phrase = require('./lib/phrase/index');
-module.exports = {
-    Talk: talk.Talk,
-    TalkList: talkList.TalkList,
-    Sentence: sentence.Sentence,
-    Pointer: pointer.Pointer,
-    Branch: branch.Branch,
-    BasicPhrase: phrase.BasicPhrase,
-    Phrase: phrase.Phrase,
-    VariablePhrase: phrase.VariablePhrase,
-    Condition: phrase.Condition
-};
+exports.InputType = talk.InputType;
+exports.Talk = talk.Talk;
+exports.TalkList = talkList.TalkList;
+exports.Sentence = sentence.Sentence;
+exports.Pointer = pointer.Pointer;
+exports.Branch = branch.Branch;
+exports.Condition = phrase.Condition;
+// Phrase
+exports.BasicPhrase = phrase.BasicPhrase;
+exports.Phrase = phrase.Phrase;
+exports.VariablePhrase = phrase.VariablePhrase;
+exports.BranchPhrase = phrase.BranchPhrase;

@@ -6,6 +6,16 @@ var sentence = require('./sentence');
 var pointer = require('./pointer');
 var branch = require('./branch');
 /**
+ * 会話の入力の種類を表す
+ */
+(function (InputType) {
+    InputType[InputType["None"] = 0] = "None";
+    InputType[InputType["Number"] = 1] = "Number";
+    InputType[InputType["String"] = 2] = "String";
+})(exports.InputType || (exports.InputType = {}));
+var InputType = exports.InputType;
+;
+/**
  * 会話を表すクラス
  */
 var Talk = (function () {
@@ -34,9 +44,14 @@ var Talk = (function () {
          * 条件分岐が存在する場合、条件分岐
          */
         this.branch = null;
+        /**
+         * 入力が存在する場合、入力
+         */
+        this.inputType = 0 /* None */;
         this.pointer.talkId = id;
         this.pointer.sentenceId = null;
         this.pointer.branchId = null;
+        this.pointer.inputType = 0 /* None */;
     }
     /**
      * 会話を途中から再開する
@@ -55,6 +70,7 @@ var Talk = (function () {
     Talk.prototype.reset = function () {
         this.pointer.branchId = null;
         this.pointer.sentenceId = null;
+        this.pointer.inputType = 0 /* None */;
         return this;
     };
     /**
@@ -62,7 +78,7 @@ var Talk = (function () {
      */
     Talk.prototype.next = function () {
         // 現在の文書 ID & 分岐 ID が無い場合、新規に開始する
-        if (!this.pointer.sentenceId && !this.pointer.branchId) {
+        if (!this.pointer.sentenceId && !this.pointer.branchId && !this.pointer.inputType) {
             // 文章がある場合
             if (this.sentenceIds.length > 0) {
                 this.pointer.sentenceId = this.sentenceIds[0];
@@ -70,14 +86,20 @@ var Talk = (function () {
             else if (this.branch) {
                 this.pointer.branchId = this.branch.id;
             }
+            else if (this.inputType) {
+                this.pointer.inputType = this.inputType;
+            }
             else {
-                return null; // 会話終了
+                return {}; // 会話終了
             }
         }
         else {
             // 分岐で終了している場合
             if (this.pointer.branchId) {
-                return null; // 会話終了
+                return {}; // 会話終了
+            }
+            else if (this.pointer.inputType) {
+                return {}; // 会話終了
             }
             else {
                 // 現在の文章 ID の位置を調べる
@@ -85,7 +107,7 @@ var Talk = (function () {
                 // 現在の文章が見つからない場合
                 if (current < 0) {
                     this.pointer.sentenceId = null;
-                    return null; // 会話終了
+                    return {}; // 会話終了
                 }
                 // 次の文章へ移動
                 this.pointer.sentenceId = this.sentenceIds[current + 1];
@@ -95,8 +117,11 @@ var Talk = (function () {
                     if (this.branch) {
                         this.pointer.branchId = this.branch.id;
                     }
+                    else if (this.inputType) {
+                        this.pointer.inputType = this.inputType;
+                    }
                     else {
-                        return null; // 会話終了
+                        return {}; // 会話終了
                     }
                 }
             }
@@ -107,6 +132,11 @@ var Talk = (function () {
                 sentence: _.sample(this.sentencesHash[this.pointer.sentenceId])
             };
         }
+        else if (this.pointer.inputType) {
+            return {
+                input: this.inputType
+            };
+        }
         else {
             return {
                 branch: this.branch
@@ -114,7 +144,10 @@ var Talk = (function () {
         }
     };
     Talk.prototype.add = function (item) {
-        if (item instanceof sentence.Sentence) {
+        if (_.isNumber(item)) {
+            this.inputType = item;
+        }
+        else if (item instanceof sentence.Sentence) {
             var s = item;
             this.sentences.push(s);
             // 文書 ID は重複可なため、配列で保持
