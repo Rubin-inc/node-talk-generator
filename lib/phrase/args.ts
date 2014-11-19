@@ -1,6 +1,9 @@
 ﻿/// <reference path="../../typings/node/node.d.ts" />
+/// <reference path="../../typings/lodash/lodash.d.ts" />
 
 // フレーズの引数
+
+import _ = require('lodash');
 
 export interface PhraseArguments {
     [key: string]: string;
