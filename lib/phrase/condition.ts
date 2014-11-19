@@ -37,6 +37,14 @@ export class Condition {
         return this;
     }
 
+    /*
+     * 条件をクリアする
+     */
+    public clear(): Condition {
+        this.conditions.length = 0;
+        return this;
+    }
+
     /**
      * 条件の結果を返す
      */
