@@ -160,8 +160,8 @@ describe('Talk class', () => {
             talk1.add(s);
         });
 
-        it('#next() != null', () => {
-            expect(talk1.next()).to.not.be.null;
+        it('#next() isn\'t empty', () => {
+            expect(talk1.next()).to.not.be.empty;
         });
 
         it('#next().branch is empty', () => {
@@ -179,10 +179,10 @@ describe('Talk class', () => {
             expect(next.sentence).to.equal(s);
         });
 
-        it('#next() x2 === null', () => {
+        it('#next() x2 is empty', () => {
             talk1.next();
             var next = talk1.next();
-            expect(next).to.be.null
+            expect(next).to.be.empty;
         });
     });
 
@@ -210,12 +210,12 @@ describe('Talk class', () => {
             expect(next.sentence).to.equal(s2);
         });
 
-        it('#next() x3 === null', () => {
+        it('#next() x3 is empty', () => {
             talk1.next();
             talk1.next();
             var next = talk1.next();
 
-            expect(next).to.be.null;
+            expect(next).to.be.empty;
         });
     });
 
@@ -297,11 +297,11 @@ describe('Talk class', () => {
             }
         });
 
-        it('#next() x2 === null', () => {
+        it('#next() x2 is empty', () => {
             talk1.next();
             var next = talk1.next();
 
-            expect(next).to.be.null;
+            expect(next).to.be.empty;
         });
     });
 
@@ -313,8 +313,8 @@ describe('Talk class', () => {
             talk1.add(branch);
         });
 
-        it('#next() != null', () => {
-            expect(talk1.next()).to.not.be.null;
+        it('#next() isn\'t empty', () => {
+            expect(talk1.next()).to.not.be.empty;
         });
 
         it('#next().sentence is empty', () => {
@@ -332,10 +332,44 @@ describe('Talk class', () => {
             expect(next.branch).to.equal(branch);
         });
 
-        it('#next() x2 === null', () => {
+        it('#next() x2 is empty', () => {
             talk1.next();
             var next = talk1.next();
-            expect(next).to.be.null
+            expect(next).to.be.empty;
+        });
+    });
+
+    describe('Talk#next() (1 input)', () => {
+        var INPUT = tg.InputType.Number;
+        var branch: tg.Branch;
+
+        beforeEach(() => {
+            talk1.add(INPUT);
+        });
+
+        it('#next() isn\'t empty', () => {
+            expect(talk1.next()).to.not.be.empty;
+        });
+
+        it('#next().sentence is empty', () => {
+            var next = talk1.next();
+            expect(next.sentence).to.be.empty;
+        });
+
+        it('#next().branch is empty', () => {
+            var next = talk1.next();
+            expect(next.branch).to.be.empty;
+        });
+
+        it('#next().input equal', () => {
+            var next = talk1.next();
+            expect(next.input).to.equal(INPUT);
+        });
+
+        it('#next() x2 is empty', () => {
+            talk1.next();
+            var next = talk1.next();
+            expect(next).to.be.empty;
         });
     });
 
@@ -383,11 +417,11 @@ describe('Talk class', () => {
             expect(next.sentence).to.be.empty;
         });
 
-        it('#next() x3 === null', () => {
+        it('#next() x3 is empty', () => {
             talk1.next();
             talk1.next();
             var next = talk1.next();
-            expect(next).to.be.null
+            expect(next).to.be.empty;
         });
     });
 
@@ -458,7 +492,7 @@ describe('Talk class', () => {
             talk1.resume(p);
 
             var next = talk1.next();
-            expect(next).to.be.null;
+            expect(next).to.be.empty;
         });
 
         it('#resume(invalid)', () => {

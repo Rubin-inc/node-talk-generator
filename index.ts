@@ -7,6 +7,7 @@ import phrase = require('./lib/phrase/index');
 
 export interface TalkNext extends talk.TalkNext { }
 export interface BranchAnswer extends branch.BranchAnswer { }
+export interface PhraseArguments extends phrase.PhraseArguments{ }
 
 export declare class Talk extends talk.Talk { }
 export declare class TalkList extends talkList.TalkList { }
@@ -15,20 +16,20 @@ export declare class Pointer extends pointer.Pointer { }
 export declare class Branch extends branch.Branch { }
 export declare class Condition extends phrase.Condition { }
 
-// Phrase
-export interface PhraseArguments extends phrase.PhraseArguments { }
 export declare class BasicPhrase extends phrase.BasicPhrase { }
 export declare class Phrase extends phrase.Phrase { }
 export declare class VariablePhrase extends phrase.VariablePhrase { }
 
-module.exports = {
-    Talk: talk.Talk,
-    TalkList: talkList.TalkList,
-    Sentence: sentence.Sentence,
-    Pointer: pointer.Pointer,
-    Branch: branch.Branch,
-    BasicPhrase: phrase.BasicPhrase,
-    Phrase: phrase.Phrase,
-    VariablePhrase: phrase.VariablePhrase,
-    Condition: phrase.Condition
-};
+export var InputType = talk.InputType;
+
+exports.Talk = talk.Talk;
+exports.TalkList = talkList.TalkList;
+exports.Sentence = sentence.Sentence;
+exports.Pointer = pointer.Pointer;
+exports.Branch = branch.Branch;
+exports.Condition = phrase.Condition;
+
+// Phrase
+exports.BasicPhrase = phrase.BasicPhrase;
+exports.Phrase = phrase.Phrase;
+exports.VariablePhrase = phrase.VariablePhrase;

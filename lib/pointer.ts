@@ -3,6 +3,8 @@
 
 import _ = require('lodash');
 
+import talk = require('./talk');
+
 /**
  * 会話の現在位置を表すクラス
  */
@@ -11,7 +13,7 @@ export class Pointer {
      * JSON へシリアライズするキー
      */
     private static SERIALIZE_KEYS = [
-        "talkId", "sentenceId", "branchId"
+        "talkId", "sentenceId", "branchId", "inputType"
     ];
 
     /**
@@ -20,6 +22,7 @@ export class Pointer {
     public talkId: string = null;
     public sentenceId: string = null;
     public branchId: string = null;
+    public inputType: talk.InputType = talk.InputType.None;
 
     /**
      * ポインタのコピーを作成する
@@ -37,6 +40,7 @@ export class Pointer {
             this.talkId = pointer_.talkId;
             this.sentenceId = pointer_.sentenceId;
             this.branchId = pointer_.branchId;
+            this.inputType = pointer_.inputType;
         }
     }
 
@@ -46,9 +50,10 @@ export class Pointer {
     public equals(pointer: Pointer): boolean {
         if (!pointer) return false;
 
-        return this.talkId == pointer.talkId &&
-            this.sentenceId == pointer.sentenceId &&
-            this.branchId == pointer.branchId;
+        return this.talkId === pointer.talkId &&
+            this.sentenceId === pointer.sentenceId &&
+            this.branchId === pointer.branchId &&
+            this.inputType === pointer.inputType;
     }
 
     /**

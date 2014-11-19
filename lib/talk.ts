@@ -16,7 +16,17 @@ import branch = require('./branch');
 export interface TalkNext {
     sentence?: sentence.Sentence;
     branch?: branch.Branch;
+    input?: InputType;
 }
+
+/**
+ * 会話の入力の種類を表す
+ */
+export enum InputType {
+    None = 0,
+    Number = 1,
+    String = 2
+};
 
 /**
  * 会話を表すクラス
@@ -44,6 +54,11 @@ export class Talk {
     public branch: branch.Branch = null;
 
     /**
+     * 入力が存在する場合、入力
+     */
+    public inputType: InputType = InputType.None;
+
+    /**
      * 会話を新規に作成する
      * @param id         会話 ID
      * @param entryPoint 会話が開始地点であるか
@@ -55,6 +70,7 @@ export class Talk {
         this.pointer.talkId = id;
         this.pointer.sentenceId = null;
         this.pointer.branchId = null;
+        this.pointer.inputType = InputType.None;
     }
 
     /**
@@ -76,6 +92,7 @@ export class Talk {
     public reset(): Talk {
         this.pointer.branchId = null;
         this.pointer.sentenceId = null;
+        this.pointer.inputType = InputType.None;
 
         return this;
     }
@@ -85,7 +102,7 @@ export class Talk {
      */
     public next(): TalkNext {
         // 現在の文書 ID & 分岐 ID が無い場合、新規に開始する
-        if (!this.pointer.sentenceId && !this.pointer.branchId) {
+        if (!this.pointer.sentenceId && !this.pointer.branchId && !this.pointer.inputType) {
             // 文章がある場合
             if (this.sentenceIds.length > 0) {
                 this.pointer.sentenceId = this.sentenceIds[0];
@@ -96,8 +113,13 @@ export class Talk {
                 this.pointer.branchId = this.branch.id;
             }
 
+            // 入力が存在する場合
+            else if (this.inputType) {
+                this.pointer.inputType = this.inputType;
+            }
+
             else {
-                return null; // 会話終了
+                return {}; // 会話終了
             }
         }
 
@@ -105,7 +127,12 @@ export class Talk {
         else {
             // 分岐で終了している場合
             if (this.pointer.branchId) {
-                return null; // 会話終了
+                return {}; // 会話終了
+            }
+
+            // 入力で終了している場合
+            else if (this.pointer.inputType) {
+                return {}; // 会話終了
             }
 
             // 文章で終了している場合
@@ -116,7 +143,7 @@ export class Talk {
                 // 現在の文章が見つからない場合
                 if (current < 0) {
                     this.pointer.sentenceId = null;
-                    return null; // 会話終了
+                    return {}; // 会話終了
                 }
 
                 // 次の文章へ移動
@@ -129,9 +156,14 @@ export class Talk {
                         this.pointer.branchId = this.branch.id;
                     }
 
+                    // 入力が存在する場合
+                    else if (this.inputType) {
+                        this.pointer.inputType = this.inputType;
+                    }
+
                     // 分岐が存在しない場合
                     else {
-                        return null; // 会話終了
+                        return {}; // 会話終了
                     }
                 }
             }
@@ -143,6 +175,13 @@ export class Talk {
                 sentence: _.sample(this.sentencesHash[this.pointer.sentenceId])
             };
         }
+
+        else if (this.pointer.inputType) {
+            return {
+                input: this.inputType
+            };
+        }
+
         else {
             return {
                 branch: this.branch
@@ -160,8 +199,17 @@ export class Talk {
      */
     public add(item: sentence.Sentence): Talk;
 
+    /**
+     * 会話に入力を追加する。入力は会話の最後に一度のみ設定可能
+     */
+    public add(item: InputType): Talk;
+
     public add(item: any): Talk {
-        if (item instanceof sentence.Sentence) {
+        if (_.isNumber(item)) {
+            this.inputType = item;
+        }
+
+        else if (item instanceof sentence.Sentence) {
             var s: sentence.Sentence = item;
 
             this.sentences.push(s);
