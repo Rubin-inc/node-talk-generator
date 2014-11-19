@@ -20,7 +20,7 @@ module.exports = (grunt) ->
         clean:
             dev: [
                 './bin', './obj'
-                '*.js', '*/*.js'
+                '*.js', 'lib/**/*.js', 'test/**/*.js', 'dist',
                 '*.map', '*/*.map'
                 ]
         
