@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../test.d.ts" />
 
-//  フレーズの基礎クラスに対するテスト
+//  演算子に対するテスト
 
 import _ = require('lodash');
 import chai = require('chai');
