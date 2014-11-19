@@ -1,4 +1,4 @@
-﻿/// <reference path="../typings/node/node.d.ts" />
+﻿/// <reference path="../../typings/node/node.d.ts" />
 
 // 演算子の定義
 
