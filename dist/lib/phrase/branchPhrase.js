@@ -13,7 +13,7 @@ var BranchPhrase = (function (_super) {
         _super.apply(this, arguments);
     }
     BranchPhrase.prototype.getText = function () {
-        return null;
+        throw 'Not Implemented';
     };
     return BranchPhrase;
 })(basicPhrase.BasicPhrase);

@@ -12,5 +12,6 @@ module.exports = {
     Branch: branch.Branch,
     BasicPhrase: phrase.BasicPhrase,
     Phrase: phrase.Phrase,
-    VariablePhrase: phrase.VariablePhrase
+    VariablePhrase: phrase.VariablePhrase,
+    Condition: phrase.Condition
 };

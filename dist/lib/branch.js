@@ -7,12 +7,17 @@ var _ = require('lodash');
  */
 var Branch = (function () {
     function Branch(id, question) {
+        if (question === void 0) { question = null; }
         this.id = id;
-        this.question = question;
         /**
          * 解答の一覧
          */
         this.answers = [];
+        /**
+         * 質問文
+         */
+        this.question = null;
+        this.question = question;
     }
     /***
      * 条件分岐を追加する
@@ -35,9 +40,13 @@ var Branch = (function () {
     };
     /**
      * 質問文を取得する
+     * 質問文が取得できない場合は、空文字を返す
      */
     Branch.prototype.getQuestionText = function (args) {
-        return this.question.getText(args);
+        if (this.question) {
+            return this.question.getText(args);
+        }
+        return '';
     };
     /**
      * 解答一覧を取得する
@@ -50,6 +59,16 @@ var Branch = (function () {
             };
         });
     };
+    Object.defineProperty(Branch.prototype, "length", {
+        /**
+         * 解答の数を返す
+         */
+        get: function () {
+            return this.answers.length;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return Branch;
 })();
 exports.Branch = Branch;
