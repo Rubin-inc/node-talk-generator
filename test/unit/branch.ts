@@ -108,7 +108,30 @@ describe('Branch class', () => {
     });
 
     describe('Branch#getAnswers()', () => {
-        it('nop');
+        it('length == 0', () => {
+            expect(branch.getAnswers({})).to.have.length(0);
+        });
 
+        it('length == 1', () => {
+            branch.add(answer1, talk2);
+            var answers = branch.getAnswers({});
+
+            expect(answers).to.have.length(1);
+            expect(answers[0].text).to.equal(ANSWER_TEXT_1);
+            expect(answers[0].next).to.equal(talk2);
+        });
+
+        it('length == 2', () => {
+            branch.add(answer1, talk2);
+            branch.add(answer2, talk3);
+            
+            var answers = branch.getAnswers({});
+
+            expect(answers).to.have.length(2);
+            expect(answers[0].text).to.equal(ANSWER_TEXT_1);
+            expect(answers[0].next).to.equal(talk2);
+            expect(answers[1].text).to.equal(ANSWER_TEXT_2);
+            expect(answers[1].next).to.equal(talk3);
+        });
     });
 });
