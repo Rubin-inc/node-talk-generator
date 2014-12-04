@@ -36,6 +36,7 @@ var Branch = (function () {
      */
     Branch.prototype.clear = function () {
         this.answers.length = 0;
+        this.question = null;
         return this;
     };
     /**

@@ -30,13 +30,17 @@ describe('Branch class', () => {
         question = new tg.Sentence('sentence_id');
         question.add(new tg.Phrase('phrase_id').add(QUESTION_TEXT));
 
-        branch = new tg.Branch('branch_id', question);
+        branch = new tg.Branch('branch_id');
 
         answer1 = new tg.Sentence('answer_1');
         answer1.add(new tg.Phrase('answer_1').add(ANSWER_TEXT_1));
 
         answer2 = new tg.Sentence('answer_2');
         answer2.add(new tg.Phrase('answer_2').add(ANSWER_TEXT_2));
+    });
+
+    beforeEach(() => {
+        branch.question = question;
     });
 
     afterEach(() => {
@@ -66,6 +70,7 @@ describe('Branch class', () => {
         branch.add(answer1, talk2);
         branch.clear();
         expect(branch).to.have.length(0);
+        expect(branch.question).to.be.null;
     });
 
     it('Branch#clear() returns', () => {
