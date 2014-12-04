@@ -78,6 +78,7 @@ export class Branch {
      */
     public clear(): Branch {
         this.answers.length = 0;
+        this.question = null;
         return this;
     }
 
