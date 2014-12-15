@@ -17,10 +17,7 @@ typings
 npm-debug.log
 
 # JavaScript
-/*.js
 /*.js.map
-
-/lib/**/*.js
 /lib/**/*.js.map
 
 /test/**/*.js

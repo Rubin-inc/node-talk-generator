@@ -11,10 +11,7 @@ module.exports = (grunt) ->
                 declaration: false
                 noImplicitAny: true
                 comments: false
-            prod:
-                src: ['./index.ts', 'lib/**/*.ts']
-                dest: './dist/'
-            dev:
+            all:
                 src: ['./index.ts', 'lib/**/*.ts', 'test/**/*.ts']
         
         mochacov:
@@ -32,8 +29,8 @@ module.exports = (grunt) ->
         clean:
             dev: [
                 './bin', './obj'
-                '*.js', 'lib/**/*.js', 'test/**/*.js', 'dist',
-                '*.map', '*/*.map'
+                '*.js', 'lib/**/*.js', 'test/**/*.js'
+                '*.map', '**/*.map'
                 ]
         
         esteWatch:
@@ -47,7 +44,7 @@ module.exports = (grunt) ->
                 ['typescript:dev']
     
     grunt.registerTask 'default', ['typescript:dev']
-    grunt.registerTask 'build', ['clean:dev', 'typescript:dev', 'typescript:prod']
+    grunt.registerTask 'build', ['clean:dev', 'typescript']
     grunt.registerTask 'watch', ['esteWatch']
     
     testTasks = ['mochacov:test']
