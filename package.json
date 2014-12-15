@@ -12,7 +12,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/pine613/node-talk-generator.git"
+        "url": "https://github.com/Rubin-inc/node-talk-generator.git"
     },
     "author": {
         "name": "Pine Mizune",
