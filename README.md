@@ -1,6 +1,7 @@
 node-talk-generator
 -------------------
 [![Build Status](https://travis-ci.org/Rubin-inc/node-talk-generator.svg?branch=master)](https://travis-ci.org/Rubin-inc/node-talk-generator)
+[![Coverage Status](https://img.shields.io/coveralls/Rubin-inc/node-talk-generator.svg)](https://coveralls.io/r/Rubin-inc/node-talk-generator?branch=master)
 [![Dependency Status](https://david-dm.org/Rubin-inc/node-talk-generator.svg)](https://david-dm.org/Rubin-inc/node-talk-generator)
 [![devDependency Status](https://david-dm.org/Rubin-inc/node-talk-generator/dev-status.svg)](https://david-dm.org/Rubin-inc/node-talk-generator#info=devDependencies)
 
