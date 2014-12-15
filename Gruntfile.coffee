@@ -17,6 +17,18 @@ module.exports = (grunt) ->
             dev:
                 src: ['./index.ts', 'lib/**/*.ts', 'test/**/*.ts']
         
+        mochacov:
+            options:
+                files: ['test/unit/**/*.js', 'test/system/*.js']
+            test:
+                options:
+                    reporter: 'spec'
+            
+            coveralls:
+                options:
+                    coveralls:
+                        serviceName: 'travis-ci'
+
         clean:
             dev: [
                 './bin', './obj'
@@ -37,5 +49,9 @@ module.exports = (grunt) ->
     grunt.registerTask 'default', ['typescript:dev']
     grunt.registerTask 'build', ['clean:dev', 'typescript:dev', 'typescript:prod']
     grunt.registerTask 'watch', ['esteWatch']
+    
+    testTasks = ['mochacov:test']
+    testTasks.push 'mochacov:coveralls' if process.env.TRAVIS
+    grunt.registerTask 'test', testTasks
     
     require('load-grunt-tasks')(grunt)

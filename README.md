@@ -1,5 +1,8 @@
 node-talk-generator
 -------------------
+[![Build Status](https://travis-ci.org/Rubin-inc/node-talk-generator.svg?branch=master)](https://travis-ci.org/Rubin-inc/node-talk-generator)
+[![Dependency Status](https://david-dm.org/Rubin-inc/node-talk-generator.svg)](https://david-dm.org/Rubin-inc/node-talk-generator)
+[![devDependency Status](https://david-dm.org/Rubin-inc/node-talk-generator/dev-status.svg)](https://david-dm.org/Rubin-inc/node-talk-generator#info=devDependencies)
 
 ## Development environment
 * Node.js & NPM

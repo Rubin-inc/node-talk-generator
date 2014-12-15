@@ -8,10 +8,13 @@
     "*.md"
   ],
   "scripts": {
-    "test": "mocha -R spec test/unit/**/*.js test/system/*.js",
+    "test": "grunt test",
     "tsd": "tsd reinstall",
     "build": "grunt build",
-    "watch": "grunt watch"
+    "watch": "grunt watch",
+    "blanket": {
+      "pattern": "/node-talk-generator/lib/"
+    }
   },
   "repository": {
     "type": "git",
@@ -35,9 +38,9 @@
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-este-watch": "^0.1.18",
+    "grunt-mocha-cov": "^0.3.0",
     "grunt-typescript": "^0.4.4",
     "load-grunt-tasks": "^1.0.0",
-    "mocha": "^2.0.1",
     "tsd": "^0.5.7",
     "typescript": "^1.3.0"
   }
