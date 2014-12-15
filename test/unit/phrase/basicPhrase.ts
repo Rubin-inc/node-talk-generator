@@ -64,13 +64,13 @@ describe('BasicPhrase class', () => {
     describe('BasicPhrase#clear() throw Error', () => {
         it('From BasicPhrase#clear()', () => {
             expect(() => {
-                bp.getText({}); // 抽象メソッド
+                bp.clear(); // 抽象メソッド
             }).to.throw(Error);
         });
 
         it('From Sentence#clear()', () => {
             expect(() => {
-                s.getText({}); // 文章経由で BasicPhrase#clear() を呼び出す
+                s.clear(); // 文章経由で BasicPhrase#clear() を呼び出す
             }).to.throw(Error);
         });
     });
