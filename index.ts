@@ -1,4 +1,8 @@
-﻿import talk = require('./lib/talk');
+﻿/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import talk = require('./lib/talk');
 import talkList = require('./lib/talkList');
 import sentence = require('./lib/sentence');
 import pointer = require('./lib/pointer');

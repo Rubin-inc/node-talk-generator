@@ -36,3 +36,7 @@ It's automatic for this project to compile as following.
 ```
 $ npm run watch
 ```
+
+## License
+MPL-2.0<br />
+Copyright (C) 2014 Rubin, inc.

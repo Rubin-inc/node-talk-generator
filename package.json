@@ -18,12 +18,11 @@
         "name": "Pine Mizune",
         "url": "https://github.com/pine613"
     },
-    "license": "MIT",
+    "license": "MPL-2.0",
     "bugs": {
         "url": "https://github.com/pine613/node-talk-generator/issues"
     },
     "homepage": "https://github.com/pine613/node-talk-generator",
-    "private": true,
     "dependencies": {
         "lodash": "^2.4.1"
     },
