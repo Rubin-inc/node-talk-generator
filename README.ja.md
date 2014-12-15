@@ -7,21 +7,18 @@ node-talk-generator
 
 [English](README.md) | [日本語](README.ja.md)
 
-## Development environment
+## 開発環境
 * Node.js & NPM
 * Visual Studio 2013
 * [TypeScript](http://www.typescriptlang.org)
 * [Grunt](http://gruntjs.com)
 * [tsd](http://definitelytyped.org/tsd/)
 
-## Usage
+## 利用方法
 TODO
 
-### Configration loader
-- [node-talk-xlsx-loader](https://github.com/pine613/node-talk-generator-xlsx-loader)
-
-## Build
-You must install dependency libraries for this project.
+## ビルド
+プロジェクトに依存しているライブラリをインストールする必要があります。
 
 ```
 $ npm install
@@ -29,20 +26,20 @@ $ npm run tsd
 $ npm run build
 ```
 
-## Test
-There are test scripts used [Mocha](http://mochajs.org) and [Chai](http://chaijs.com). You can test as following.
+## テスト
+[Mocha](http://mochajs.org) と [Chai](http://chaijs.com) を使ってテストが書かれています。テストは以下のコマンドで実行できます。
 
 ```
 $ npm test
 ```
 
-## Develop
-It's automatic for this project to compile as following.
+## 開発者向け情報
+このプロジェクトは、以下のコマンドにより Grunt による自動ビルドが行えます。
 
 ```
 $ npm run watch
 ```
 
-## License
+## ライセンス
 MPL-2.0<br />
 Copyright (C) 2014 Rubin, inc.
