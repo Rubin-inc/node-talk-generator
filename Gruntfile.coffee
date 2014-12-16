@@ -40,8 +40,8 @@ module.exports = (grunt) ->
                     enabled: false
             
             ts: (filepath) ->
-                grunt.config ['typescript', 'dev', 'src'], [filepath]
-                ['typescript:dev']
+                grunt.config ['typescript', 'all', 'src'], [filepath]
+                ['typescript']
     
     grunt.registerTask 'default', ['typescript:dev']
     grunt.registerTask 'build', ['clean:dev', 'typescript']
