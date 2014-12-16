@@ -43,7 +43,7 @@ module.exports = (grunt) ->
                 grunt.config ['typescript', 'all', 'src'], [filepath]
                 ['typescript']
     
-    grunt.registerTask 'default', ['typescript:dev']
+    grunt.registerTask 'default', ['typescript']
     grunt.registerTask 'build', ['clean:dev', 'typescript']
     grunt.registerTask 'watch', ['esteWatch']
     
