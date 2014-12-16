@@ -70,8 +70,10 @@ describe('BasicPhrase class', () => {
 
         it('From Sentence#clear()', () => {
             expect(() => {
-                s.clear(); // 文章経由で BasicPhrase#clear() を呼び出す
-            }).to.throw(Error);
+                // 文章経由で BasicPhrase#clear() を呼び出す
+                // (オーバーライドされた clear から、親クラスの clear は呼び出されないはず)
+                s.clear();
+            }).to.not.throw(Error);
         });
     });
 }); 
