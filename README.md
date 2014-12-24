@@ -7,6 +7,7 @@ node-talk-generator
 
 [English](README.md) | [日本語](README.ja.md)
 
+
 ## Development environment
 * Node.js & NPM
 * Visual Studio 2013
