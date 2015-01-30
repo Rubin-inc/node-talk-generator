@@ -344,7 +344,7 @@ describe('Talk class', () => {
     });
 
     describe('Talk#next() (1 input)', () => {
-        var INPUT = tg.InputType.Number;
+        var INPUT = new tg.Input('id', tg.InputType.Number);
         var branch: tg.Branch;
 
         beforeEach(() => {
