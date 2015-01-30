@@ -32,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="index.ts" />
+    <TypeScriptCompile Include="lib\input.ts" />
     <TypeScriptCompile Include="lib\phrase\operator.ts" />
     <TypeScriptCompile Include="lib\phrase\args.ts" />
     <TypeScriptCompile Include="lib\phrase\basicPhrase.ts" />
