@@ -21,7 +21,9 @@ import input = require('./input');
 export interface TalkNext {
     sentence?: sentence.Sentence;
     branch?: branch.Branch;
+    prevBranch?: branch.Branch;
     input?: input.Input;
+    prevInput?: input.Input;
 }
 
 
@@ -123,12 +125,18 @@ export class Talk {
         else {
             // 分岐で終了している場合
             if (this.pointer.branchId) {
-                return {}; // 会話終了
+                // 会話終了
+                return {
+                    prevBranch: this.branch
+                };
             }
 
             // 入力で終了している場合
             else if (this.pointer.inputId) {
-                return {}; // 会話終了
+                // 会話終了
+                return {
+                    prevInput: this.input
+                };
             }
 
             // 文章で終了している場合
