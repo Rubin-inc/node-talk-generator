@@ -84,6 +84,12 @@ describe('Condition class', () => {
             expect(cond.getResult(args)).to.be.false;
         });
 
+        // 不正なオペレータを指定した時のテスト
+        it('1 conditions (invalid operator)', () => {
+            cond.add('name', '___invalid_operator___', 'value');
+            expect(cond.getResult(<tg.PhraseArguments>{})).to.be.false; // エラーにならず無視される
+        });
+
         // 変数が存在しない場合は、変数値は空文字として扱われる
         it('1 conditions (nothing key; true)', () => {
             cond.add('nothing_variable_name', '=', '');
