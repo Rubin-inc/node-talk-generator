@@ -506,4 +506,57 @@ describe('Talk class', () => {
             expect(() => { talk1.resume(p); }).to.throw();
         });
     });
+
+
+    describe('Talk#next() (1 sentence & 1 input)', () => {
+        var s: tg.Sentence;
+        var input: tg.Input;
+
+        beforeEach(() => {
+            s = new tg.Sentence('id');
+            input = new tg.Input('id', tg.InputType.Number);
+
+            talk1.add(s);
+            talk1.add(input);
+        });
+
+        it('#next() != null', () => {
+            expect(talk1.next()).to.not.be.null;
+        });
+
+        it('#next().sentence === s', () => {
+            var next = talk1.next();
+            expect(next.sentence).to.equal(s);
+        });
+
+        it('#next().input is empty', () => {
+            var next = talk1.next();
+            expect(next.input).to.be.empty;
+        });
+
+        it('#next() x2 isn\'t empty', () => {
+            talk1.next();
+            var next = talk1.next();
+            expect(next.input).to.not.be.empty;
+        });
+
+        it('#next() x2 .input === input', () => {
+            talk1.next();
+            var next = talk1.next();
+            expect(next.input).to.equal(input);
+        });
+
+        it('#next() x2 .sentence is empty', () => {
+            talk1.next();
+            var next = talk1.next();
+            expect(next.sentence).to.be.empty;
+        });
+
+        it('#next() x3 is empty', () => {
+            talk1.next();
+            talk1.next();
+            var next = talk1.next();
+            expect(next).to.be.empty;
+        });
+    });
 });
