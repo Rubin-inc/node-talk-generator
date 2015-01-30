@@ -124,4 +124,15 @@ describe('TalkList class', () => {
         expect(talk).to.be.equal(staredTalk)
             .and.to.be.equal(resumeTalk);
     });
+
+    it('TalkList#resume() null pointer', () => {
+        var resumeTalk = talkList.resume(null);
+        expect(resumeTalk).to.be.null;
+    });
+
+    it('TalkList#resume() invalid pointer', () => {
+        var p = new tg.Pointer();
+        var resumeTalk = talkList.resume(p);
+        expect(resumeTalk).to.be.null;
+    });
 });
