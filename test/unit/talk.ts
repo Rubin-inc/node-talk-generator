@@ -339,13 +339,12 @@ describe('Talk class', () => {
         it('#next() x2 is empty', () => {
             talk1.next();
             var next = talk1.next();
-            expect(next).to.be.empty;
+            expect(next.prevBranch).to.equal(branch);
         });
     });
 
     describe('Talk#next() (1 input)', () => {
         var INPUT = new tg.Input('id', tg.InputType.Number);
-        var branch: tg.Branch;
 
         beforeEach(() => {
             talk1.add(INPUT);
@@ -373,7 +372,7 @@ describe('Talk class', () => {
         it('#next() x2 is empty', () => {
             talk1.next();
             var next = talk1.next();
-            expect(next).to.be.empty;
+            expect(next.prevInput).to.equal(INPUT);
         });
     });
 
@@ -421,11 +420,11 @@ describe('Talk class', () => {
             expect(next.sentence).to.be.empty;
         });
 
-        it('#next() x3 is empty', () => {
+        it('#next() x3 .prevBranch is branch', () => {
             talk1.next();
             talk1.next();
             var next = talk1.next();
-            expect(next).to.be.empty;
+            expect(next.prevBranch).to.equal(branch);
         });
     });
 
@@ -552,11 +551,11 @@ describe('Talk class', () => {
             expect(next.sentence).to.be.empty;
         });
 
-        it('#next() x3 is empty', () => {
+        it('#next() x3 .prevInput is input', () => {
             talk1.next();
             talk1.next();
             var next = talk1.next();
-            expect(next).to.be.empty;
+            expect(next.prevInput).to.equal(input);
         });
     });
 
