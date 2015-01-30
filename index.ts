@@ -8,6 +8,7 @@ import sentence = require('./lib/sentence');
 import pointer = require('./lib/pointer');
 import branch = require('./lib/branch');
 import phrase = require('./lib/phrase/index');
+import input = require('./lib/input');
 
 // 宣言のみ
 export interface TalkNext extends talk.TalkNext { }
@@ -20,13 +21,14 @@ export declare class Sentence extends sentence.Sentence { }
 export declare class Pointer extends pointer.Pointer { }
 export declare class Branch extends branch.Branch { }
 export declare class Condition extends phrase.Condition { }
+export declare class Input extends input.Input { }
 
 export declare class BasicPhrase extends phrase.BasicPhrase { }
 export declare class Phrase extends phrase.Phrase { }
 export declare class VariablePhrase extends phrase.VariablePhrase { }
 export declare class BranchPhrase extends phrase.BranchPhrase { }
 
-export var InputType = talk.InputType;
+export var InputType = input.InputType;
 
 exports.Talk = talk.Talk;
 exports.TalkList = talkList.TalkList;
@@ -34,6 +36,7 @@ exports.Sentence = sentence.Sentence;
 exports.Pointer = pointer.Pointer;
 exports.Branch = branch.Branch;
 exports.Condition = phrase.Condition;
+exports.Input = input.Input;
 
 // Phrase
 exports.BasicPhrase = phrase.BasicPhrase;
