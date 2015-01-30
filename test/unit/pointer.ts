@@ -95,6 +95,19 @@ describe('Pointer class', () => {
         expect(p.equals(p2)).to.be.true;
     });
 
+    // 文字列を受け取るコンストラクタのテスト
+    it('Pointer#toJSON() equals str constructor (all)', () => {
+        p.talkId = 'talkId';
+        p.sentenceId = 'sentenceId';
+        p.branchId = 'branchId';
+        p.inputId = 'inputId';
+
+        var str = JSON.stringify(p);
+        var p2 = new tg.Pointer(str);
+
+        expect(p.equals(p2)).to.be.true;
+    });
+
     it('Pointer#toJSON() !equals (talkId)', () => {
         p.talkId = 'p';
 
@@ -104,5 +117,10 @@ describe('Pointer class', () => {
         p.talkId = 'q';
 
         expect(p.equals(p2)).to.be.false;
+    });
+
+    // 偽な値との比較
+    it('Pointer#toJSON() !equals (null)', () => {
+        expect(p.equals(null)).to.be.false;
     });
 });
