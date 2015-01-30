@@ -559,4 +559,38 @@ describe('Talk class', () => {
             expect(next).to.be.empty;
         });
     });
+
+    describe('Talk#next() (invalid sentenceId)', () => {
+        var s1: tg.Sentence;
+        var s2: tg.Sentence;
+
+        beforeEach(() => {
+            s1 = new tg.Sentence('id_1');
+            s2 = new tg.Sentence('id_2');
+
+            talk1.add(s1);
+            talk1.add(s2);
+        });
+
+        it('#next() != null', () => {
+            expect(talk1.next()).to.not.be.null;
+        });
+
+        it('#next().sentence == s1', () => {
+            expect(talk1.next().sentence).to.equal(s1);
+        });
+
+        it('#next() invalid pointer', () => {
+            talk1.next();
+
+            // このポインタで再開したら、s2 になるはず
+            var p = talk1.getPointerClone();
+
+            // 開始位置のポインタを存在しない値にする
+            p.sentenceId = 'invalid_id_1';
+
+            expect(talk1.resume(p)).to.equal(talk1);
+            expect(talk1.next()).to.be.empty;
+        });
+    });
 });
