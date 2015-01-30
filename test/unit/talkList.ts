@@ -135,4 +135,12 @@ describe('TalkList class', () => {
         var resumeTalk = talkList.resume(p);
         expect(resumeTalk).to.be.null;
     });
+
+    it('TalkList#resume() invalid id pointer', () => {
+        var p = new tg.Pointer();
+        p.talkId = 'invalid_id';
+
+        var resumeTalk = talkList.resume(p);
+        expect(resumeTalk).to.be.null;
+    });
 });
